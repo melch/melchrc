@@ -1,0 +1,14 @@
+--smart-case
+--color
+--ignore-dir=log
+--ignore-dir=public/demo
+--ignore-dir=app/views/sales_demo
+--ignore-dir=public/.assets
+--ignore-dir=tmp
+
+--ignore-file=match:ext-all.js
+--ignore-file=match:ext-base.js
+--ignore-file=match:jsmin.js
+--ignore-file=match:.pdf
+
+--nosql

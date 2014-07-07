@@ -1,0 +1,53 @@
+#!/bin/bash
+############################
+# This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
+# Thanks to michaeljsmalley for the template
+# https://github.com/michaeljsmalley/dotfiles/blob/master/makesymlinks.sh
+############################
+
+# TODO:
+# fill out rest of what to do if file exists
+# move other dotfiles over
+  # vimrc
+	# bashrc
+	# profile (fix to just use bashrc, probably)
+
+dotfiles_dir=~/melchrc        # dotfiles directory copied from github
+backup_dir=~/backup_dotfiles  # old dotfiles backup directory
+
+# get list of dotfiles
+cd $dotfiles_dir
+echo "cd $dotfiles_dir"
+shopt -s nullglob
+dotfiles=(.[a-zA-Z]*)
+
+echo "----------"
+for filename in "${dotfiles[@]}"; do :
+	if [ -f ~/$filename ]
+	then
+		if [ -h ~/$filename ]; then
+			echo "~/$filename is already a symlink"
+		else
+			echo "~/$filename exists, will not create symlink"
+			# if bashrc and no "source ~/melchrc/.bashrc"
+			#   add source to melchrc/.bashrc at end of bashrc
+			# else
+			#   echo "backing up $filename in $backup_dir"
+			#   create dotfiles_old in homedir if it doesn't exist
+			# 	mkdir -p $backup_dir
+			# 	# ask to overwrite or back up ???
+			# 	move existing dotfile in homedir to backup directory
+			#   create symlink to new dotfile
+		fi
+	else
+		echo "~/$filename does not exist, creating symlink to $dotfiles_dir/$filename"
+		echo "ln -s $dotfiles_dir/$filename ~/$filename"
+		ln -s $dotfiles_dir/$filename ~/$filename
+	fi
+done
+
+echo "----------"
+# uncomment below to view symlinks in home directory
+# ls -l `find ~/ -maxdepth 1 -type l -print`
+
+echo "...done"
