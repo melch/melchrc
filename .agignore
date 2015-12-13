@@ -1,0 +1,15 @@
+db/initial_projects
+*.min.js
+*.*.min.js
+*.*.*min.js
+*/*.min.js
+*/*.*.min.js
+*/*.*.*min.js
+lib/assets/procore_ui/pdf
+spec/fixtures/files/api/ms_project_xml_imports
+*/*encoded*
+
+
+*.json
+spec/fixtures
+vendor/assets/javascripts
