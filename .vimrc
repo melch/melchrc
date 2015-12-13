@@ -190,9 +190,9 @@ let g:CommandTAcceptSelectionTabMap = '<CR>'
 let g:CommandTMatchWindowReverse = 1
 " esc and arrow keys exit and move file selection when cmd t is open
 if &term =~ "xterm" || &term =~ "screen"
-	let g:CommandTCancelMap=['<ESC>','<C-c>']
-	let g:CommandTSelectNextMap = ['<C-j>', '<ESC>OB']
-	let g:CommandTSelectPrevMap = ['<C-k>', '<ESC>OA']
+  let g:CommandTCancelMap=['<ESC>','<C-c>']
+  let g:CommandTSelectNextMap = ['<C-j>', '<ESC>OB']
+  let g:CommandTSelectPrevMap = ['<C-k>', '<ESC>OA']
 endif
 """"""""""""""""" /PLUGIN SPECIFIC """"""""""""""""""""""""""
 

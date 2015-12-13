@@ -8,8 +8,8 @@
 # TODO:
 # fill out rest of what to do if file exists
 # move other dotfiles over
-	# bashrc
-	# profile (fix to just use bashrc, probably)
+  # bashrc
+  # profile (fix to just use bashrc, probably)
   # look for bashrc and profile, try to find a way to reconcile differences or use both?
 
 dotfiles_dir=~/code/melchrc # dotfiles directory copied from github
@@ -23,18 +23,18 @@ dotfiles=(.agignore .vimrc .slate)
 
 echo "----------"
 for filename in "${dotfiles[@]}"; do :
-	if [ -f ~/$filename ]
-	then
-		if [ -h ~/$filename ]; then
-			echo "~/$filename is already a symlink"
-		else
-			echo "~/$filename exists, will not create symlink"
-		fi
-	else
-		echo "~/$filename does not exist, creating symlink to $dotfiles_dir/$filename"
-		echo "ln -s $dotfiles_dir/$filename ~/$filename"
-		ln -s $dotfiles_dir/$filename ~/$filename
-	fi
+  if [ -f ~/$filename ]
+  then
+    if [ -h ~/$filename ]; then
+      echo "~/$filename is already a symlink"
+    else
+      echo "~/$filename exists, will not create symlink"
+    fi
+  else
+    echo "~/$filename does not exist, creating symlink to $dotfiles_dir/$filename"
+    echo "ln -s $dotfiles_dir/$filename ~/$filename"
+    ln -s $dotfiles_dir/$filename ~/$filename
+  fi
 done
 
 echo "----------"
