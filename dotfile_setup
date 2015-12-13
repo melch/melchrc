@@ -19,7 +19,7 @@ cd $dotfiles_dir
 echo "cd $dotfiles_dir"
 shopt -s nullglob
 # too difficult to blacklist which dot files to ignore, so whitelist instead
-dotfiles=(.agignore .vimrc .slate)
+dotfiles=(.agignore .vimrc .slate .gitconfig)
 
 echo "----------"
 for filename in "${dotfiles[@]}"; do :
