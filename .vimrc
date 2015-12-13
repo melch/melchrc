@@ -1,8 +1,3 @@
-" TODO: break up this vimrc into multiple rc files?
-" if filereadable(expand("~/.gvimrc.after"))
-"   source ~/.gvimrc.after
-" endif
-
 " turn off compatibility with the old vi
 set nocompatible
 
