@@ -198,6 +198,11 @@ endif
 
 
 """"""""""""""""" HIGHLIGHTING AND DISPLAY """"""""""""""""""""""""""
+" turn syntax highlighting on by default
+" turn it on before setting highlights, or they will be overwritten o.O
+syntax on
+syntax enable
+
 " syntax highlighting should be readable...
 color molokai
 let g:molokai_original=1
@@ -206,17 +211,15 @@ let g:molokai_original=1
 set guifont=Menlo:h14
 
 "Highlight colors
-highlight PmenuSel ctermbg=Blue ctermfg=Grey
+highlight PmenuSel ctermbg=Blue ctermfg=White
 highlight Pmenu ctermbg=Grey ctermfg=Black
 highlight MatchParen ctermbg=Grey ctermfg=Black
 highlight TabLineSel ctermbg=Blue ctermfg=Grey
 highlight TabLineFill ctermbg=Black ctermfg=Black
 highlight FoldColumn ctermbg=Blue ctermfg=Grey
 highlight Folded ctermbg=Black ctermfg=Cyan
-highlight ExtraWhitespace ctermbg=Red ctermfg=Blue
+highlight ExtraWhitespace ctermbg=DarkRed ctermfg=Blue
 match ExtraWhitespace /\s\+$\|\t/
-" to overwrite when cleared by other color schemes (such as syntax highlighter)
-au ColorScheme * highlight ExtraWhitespace ctermbg=DarkRed ctermfg=Blue
 " Don't highlight end of line whitespace until leaving insert mode
 " The highlighting lags a bit, but is better than alternatives that I see currently
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$\|\t/
@@ -235,15 +238,6 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
 """"""""""""""""" BASIC VIM OPTIONS SETUP """"""""""""""""""""""""""
 " treats one_word and one-word as one word when browsing
 " set iskeyword=_,-
-
-" set our tabs to two spaces
-set shiftwidth=2
-set tabstop=2
-set expandtab
-
-" turn syntax highlighting on by default
-syntax on
-syntax enable
 
 " set auto-indenting on for programming
 set ai
@@ -270,10 +264,15 @@ set backspace=indent,eol,start
 set ic
 
 "line numbering
-se nu
+set nu
 
 set wrap
 set linebreak
 set nolist  " list disables linebreak
 set textwidth=0
 set wrapmargin=0
+
+" set our tabs to two spaces
+set tabstop=2
+set shiftwidth=2
+set expandtab
