@@ -2,7 +2,6 @@
   name = melch
   email = melch@procore.com
 [core]
-  editor = vim
   whitespace = tab-in-indent
 [pull]
   rebase = true # I use git smart-pull, so this default doesn't really matter

@@ -62,6 +62,9 @@ filetype plugin indent on    " required for vundle
 """"""""""""""""" ADVANCED SETUP """"""""""""""""""""""""""
 " set compiler support for ruby
 compiler ruby
+
+" overwrite fugitive tab spacing
+au FileType gitcommit set tabstop=2
 """"""""""""""""" /ADVANCED SETUP """"""""""""""""""""""""""
 
 
