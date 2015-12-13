@@ -87,21 +87,32 @@ alias gsu='git submodule update --init --recursive'
 
 
 ################# TERMINAL COLORING/ #################
+function prod {
+  set_theme 'Production'
+  ssh mchun@db2.production.procoretech.com
+  reset_theme
+}
+
 function set_title {
   echo -n -e "\033]0;$1\007"
 }
 
 function set_theme {
   case "$1" in
-  Staging )      set_color_blue ;;
-  Production )   set_color_red ;;
-  * )            echo "theme not found: $1" ;;
+  Staging )
+    set_title $1
+    set_color_blue ;;
+  Production )
+    set_title $1
+    set_color_red ;;
+  * )
+    echo "theme not found: $1" ;;
   esac
 }
 
 function reset_theme {
-  set_color_black
-  set_title "ssh"
+  echo -e "\033]6;1;bg;*;default\a"
+  set_title ''
 }
 
 function prompt_and_reset_theme {
