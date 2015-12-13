@@ -213,9 +213,14 @@ highlight TabLineSel ctermbg=Blue ctermfg=Grey
 highlight TabLineFill ctermbg=Black ctermfg=Black
 highlight FoldColumn ctermbg=Blue ctermfg=Grey
 highlight Folded ctermbg=Black ctermfg=Cyan
-highlight ExtraWhitespace ctermbg=Red ctermfg=Black
-highlight Tab ctermbg=DarkRed ctermfg=Black
-match ExtraWhitespace /\s\+$/
+highlight ExtraWhitespace ctermbg=Red ctermfg=Blue
+match ExtraWhitespace /\s\+$\|\t/
+" to overwrite when cleared by other color schemes (such as syntax highlighter)
+au ColorScheme * highlight ExtraWhitespace ctermbg=DarkRed ctermfg=Blue
+" Don't highlight end of line whitespace until leaving insert mode
+" The highlighting lags a bit, but is better than alternatives that I see currently
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$\|\t/
+au InsertLeave * match ExtraWhitespace /\s\+$\|\t/
 
 "for SASS
 au BufRead,BufNewFile *.scss set filetype=scss
